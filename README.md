@@ -10,9 +10,9 @@ Please follow the instructions below and fill in the information requested when 
 
 |               | Information   |
 |:-------------:|:-------------:|
-| Student Name  | name-here     |
-| Student ID    | id-here       |
-| Student Email | email-here    |
+| Student Name  | Adrian    |
+| Student ID    | 922624193       |
+| Student Email | ajimenez35@sfsu.edu   |
 
 
 
