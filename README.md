@@ -11,8 +11,8 @@ Please follow the instructions below and fill in the information requested when 
 |               | Information   |
 |:-------------:|:-------------:|
 | Student Name  | Adrian Jimenez|
-| Student ID    | 922623194      |
-| Student Email | ajimenez    |
+| Student ID    | 922624193     |
+| Student Email | ajimenez35@sfsu.edu |
 
 
 
