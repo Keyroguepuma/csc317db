@@ -2,9 +2,10 @@
 <html lang="en">
     <head>
         <title>Login</title>
+        <link rel="stylesheet" type="text/css" href="../css/style.css">
     </head>
     <header>
-        <h1>This is to login</h1>
+        <h1>LOGIN HERE</h1>
         <nav>
             <ul>
                 <li><a href="Index.html">Home</a></li>
@@ -16,13 +17,21 @@
            </nav>
     </header>
     <body>
-        <form>
-            <label for="username">Username</label><br>
-            <input type="text" id="username" name="username"><br>
-            <label for="password">Password</label><br>
-            <input type="password" id="password" name="password"><br><br>
-            <input type="submit" value="Submit">
-        </form>
+        <div class="logform">
+            <form>
+                <div class="form-group">
+                    <label for="username">Username</label><br>
+                    <input type="text" id="username" name="username"><br>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label><br>
+                    <input type="password" id="password" name="password"><br><br>
+                </div>
+    
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        
     
     </body>
 

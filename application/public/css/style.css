@@ -1,8 +1,56 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding: 20px;
+  font: 20px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0;
+
+}
+.header-h1{
+  margin-top: 0;
+  color: white;
+  border: darkslateblue;
+  border-style: groove;
+  background-color: #333;
+  padding: 0px;
+  font-family: monospace;
+  
 }
 
-a {
-  color: #00B7FF;
+ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333
+}
+li{
+  float: left;
+  font-family: monospace;
+}
+li a{
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+li a:hover{
+  color: aquamarine;
+}
+
+.form-group{
+  color: rgb(22, 154, 73);
+  font-family: monospace;
+
+}
+.logform{
+  align-content: center;
+}
+input{
+  width: 50%;
+  border-style: groove;
+ 
+}
+footer{
+  margin-left: auto;
+  margin-bottom: auto;
 }
