@@ -79,7 +79,7 @@ label{
 .logform3{
   border: 20px solid green;
   width: 500px;
-  height: 450px;
+  height: 300px;
   font-size: 22px;
   text-align: center;
   padding: 60px;
@@ -102,27 +102,20 @@ input [type="description"]{
   display: inline;
 }
 .view-post{
-  border: 20px solid green;
+  border: 20px none green;
   color: purple;
   width: 500px;
-  height: 200x;
+  height: 500x;
   font-size: 22px;
   text-align: left;
   padding: 10px;
-  position: relative;
+  margin-right: 100px;
 
 }
 .post-items{
   font-size: 22px;
 }
-.actual-video{
-  position: relative;
-  color: purple;
-  border: 20px solid green;
-  width: 200px;
-  height: 200px;
-  margin-bottom: 500px;
-}
+
 .welcome{
   border: 20px solid green;
   width: 300px;
@@ -136,6 +129,4 @@ input [type="description"]{
 }
 footer{
   color: purple;
-  left: 0;
-  bottom: 0;
 }
