@@ -2,14 +2,12 @@ body {
   padding: 20px;
   font: 20px "Lucida Grande", Helvetica, Arial, sans-serif;
   margin: 0;
+  background-color: black;
 
 }
 .header-h1{
-  margin-top: 0;
-  color: white;
-  border: darkslateblue;
-  border-style: groove;
-  background-color: #333;
+  margin: 0;
+  color: purple;
   padding: 0px;
   font-family: monospace;
   
@@ -20,7 +18,7 @@ ul{
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333
+  background-color: green
 }
 li{
   float: left;
@@ -32,25 +30,67 @@ li a{
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+
 }
 li a:hover{
-  color: aquamarine;
-}
-
-.form-group{
-  color: rgb(22, 154, 73);
-  font-family: monospace;
-
+  color: purple;
 }
 .logform{
-  align-content: center;
+  border: 20px solid green;
+  width: 300px;
+  height: 300x;
+  font-size: 22px;
+  text-align: center;
+  padding: 60px;
+  margin: auto;
+  color: white;
+  border-radius: 60px;
+
+}
+.title{
+  text-align: center;
+  color: white;
+  font-family: monospace;
+  font-weight: bolder;
 }
 input{
-  width: 50%;
-  border-style: groove;
- 
+  border-color: purple;
+  border-radius: 50px;
 }
-footer{
-  margin-left: auto;
-  margin-bottom: auto;
+label{
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: bolder;
+  color: purple;
+}
+.logform2{
+  border: 20px solid green;
+  width: 400px;
+  height: 300px;
+  font-size: 22px;
+  text-align: center;
+  padding: 60px;
+  margin: auto;
+
+  border-radius: 60px;
+
+}
+.logform3{
+  border: 20px solid green;
+  width: 500px;
+  height: 500px;
+  font-size: 22px;
+  text-align: center;
+  padding: 50px;
+  margin: auto;
+  margin-top: 100px;
+
+  border-radius: 60px;
+
+}
+.video-file{
+  color: purple;
+  margin: auto;
+}
+p{
+  color: purple;
 }
