@@ -97,6 +97,7 @@ label{
 }
 p{
   color: purple;
+  font-size: 15px;
 }
 input [type="description"]{
   display: inline;
@@ -140,4 +141,10 @@ footer{
   font-size: 15px;
   margin-top: 5px;
   color: red;
+}
+.photo{
+  display: inline grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 10px;
+  
 }
