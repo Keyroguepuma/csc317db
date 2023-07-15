@@ -1,5 +1,6 @@
 var container = document.getElementById('main-content');
 var url = "https://jsonplaceholder.typicode.com/albums/2/photos";
+var photoCounter = document.getElementById('counter-element');
 
 function fadeout(ev){
     const divElement = ev.currentTarget;
@@ -8,10 +9,12 @@ function fadeout(ev){
         counter -= 0.05;
         if(counter < 0){
             clearInterval(timer);
-            container.removeChild(divElement)
+            container.removeChild(divElement);
+            console.log(divElement.length);
         }
-        console.log(counter);
+        
         divElement.style.opacity = counter;
+        
     },10);
 
 }
@@ -47,4 +50,5 @@ fetch(url)
             return buildCardDOMAPI(photo);
         });
         container.append(...cards);
+        photoCounter.textContent = "The number of Photos are: " + data.length;
     })
