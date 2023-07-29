@@ -19,7 +19,7 @@ ul{
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: green
+  
 }
 li{
   float: left;
@@ -130,6 +130,10 @@ input [type="description"]{
 }
 footer{
   color: purple;
+  text-align: center;
+  bottom: 0;
+  position: fixed;
+  align-items: center;
 }
 .invalid-text{
   outline: red solid;
@@ -165,4 +169,13 @@ footer{
 }
 h1{
   color: purple;
+}
+.banner{
+  font-size: 50px;
+  color: black;
+  align-items: center;
+  text-align: center;
+  border: 10px double purple;
+  padding: 40px;
+  background-color: green;
 }
