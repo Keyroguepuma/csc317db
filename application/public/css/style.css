@@ -29,15 +29,16 @@ li a{
   display: block;
   color: white;
   text-align: center;
-  padding: 14px 16px;
+  padding: 14px 100px;
   text-decoration: none;
+  background-color: darkgreen;
 
 }
 li a:hover{
   color: purple;
 }
 .logform{
-  border: 20px solid green;
+  border: 20px solid darkgreen;
   width: 300px;
   height: 300x;
   font-size: 22px;
@@ -51,7 +52,7 @@ li a:hover{
 .title{
   text-align: center;
   color: white;
-  font-family: monospace;
+  font-family: 'Press Start 2P';
   font-weight: bolder;
 }
 input{
@@ -65,7 +66,7 @@ label{
   
 }
 .logform2{
-  border: 20px solid green;
+  border: 20px solid darkgreen;
   width: 400px;
   height: 450px;
   font-size: 22px;
@@ -77,8 +78,8 @@ label{
 
 }
 .logform3{
-  border: 20px solid green;
-  width: 500px;
+  border: 20px solid darkgreen;
+  width: 400px;
   height: 300px;
   font-size: 22px;
   text-align: center;
@@ -103,7 +104,7 @@ input [type="description"]{
   display: inline;
 }
 .view-post{
-  border: 20px none green;
+  border: 20px none darkgreen;
   color: purple;
   width: 500px;
   height: 500x;
@@ -118,7 +119,7 @@ input [type="description"]{
 }
 
 .welcome{
-  border: 20px solid green;
+  border: 20px solid darkgreen;
   width: 300px;
   height: 300x;
   font-size: 22px;
@@ -163,7 +164,7 @@ footer{
 .photo-counter{
   color: red;
   position: absolute;
-  top: 150px;
+  top: 220px;
   font-size: 51px;
   
 }
@@ -171,11 +172,13 @@ h1{
   color: purple;
 }
 .banner{
-  font-size: 50px;
-  color: black;
+  font-size: 70px;
+  font-family: 'Press Start 2P';
+  color: purple;
   align-items: center;
   text-align: center;
-  border: 10px double purple;
-  padding: 40px;
-  background-color: green;
+  border: 20px  lime;
+  padding: 30px;
+  background-color: black;
+  
 }
