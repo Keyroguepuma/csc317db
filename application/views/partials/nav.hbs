@@ -8,7 +8,9 @@
                 
                 {{#if isLoggedIn}}
                  <li>
-                    <button style="color: purple;" id="log-out" class="log-out">{{user.username}}</button>
+                    <form action="/users/logout" method="post">
+                    <button style="color: purple;" id="log-out" class="log-out">Log Out</button>
+                    </form>
 
                 
                 </li> 
