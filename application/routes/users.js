@@ -36,4 +36,25 @@ router.post('/registration', async function(req,res,next){
 
 })
 
+router.post('/login', async function(req,res,next){
+  var { username, password} = req.body;
+  try{
+    var [results, _] = await db.execute(`select id, username from users where =? AND password=?`,[username,password])
+
+
+    if(results && results.length == 1){
+      return res.redirect('/')
+
+    }else{
+      return res.redirect('/login');
+
+    }
+
+  }catch(err){
+    next(err);
+  }
+
+
+})
+
 module.exports = router;
