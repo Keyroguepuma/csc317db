@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var bcrypt = require('bcrypt');
 const db = require('../config/database');
 
 //localhost:300/users/registration
@@ -17,8 +18,10 @@ router.post('/registration', async function(req,res,next){
     }
 
     // insert into db
-    var [insertResult, _] = await db.execute(`INSERT INTO users (username, email, password) VALUE (?,?,?)`, [username,email,password])
+    var hashedPassword = await bcrypt.hash(password, 5);
 
+    var [insertResult, _] = await db.execute(`INSERT INTO users (username, email, password) VALUE (?,?,?)`, [username,email,hashedPassword])
+   
 
     //respond
     if(insertResult && insertResult.affectedRows == 1){
@@ -36,20 +39,28 @@ router.post('/registration', async function(req,res,next){
 
 })
 
-router.post('/login', async function(req,res,next){
+router.post("/login", async function(req,res,next){
   var { username, password} = req.body;
   try{
-    var [results, _] = await db.execute(`select id, username from users where =? AND password=?`,[username,password])
+    var [results, _] = await db.execute(`select id, username, email, password from users where  username=? `,[username]);
+    const user = results[0];
+    if(!user){
+      return res.redirect("/login");
+    }
+    var passwordsMatch = await bcrypt.compare(password, user.password);
 
-
-    if(results && results.length == 1){
+    if(passwordsMatch){
+      req.session.user = {
+        userId: user.id,
+        username: user.username,
+        email: user.email,
+      }
       return res.redirect('/')
 
     }else{
       return res.redirect('/login');
 
     }
-
   }catch(err){
     next(err);
   }

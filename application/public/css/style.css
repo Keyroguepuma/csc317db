@@ -19,24 +19,30 @@ ul{
   margin: 0;
   padding: 0;
   overflow: hidden;
-  
+  margin-top: 10px;
+
+
 }
 li{
   float: left;
   font-family: monospace;
 }
+
+
 li a{
   display: block;
   color: white;
   text-align: center;
-  padding: 14px 100px;
+  padding: 14px 50px;
   text-decoration: none;
-  background-color: darkgreen;
+
 
 }
 li a:hover{
   color: purple;
 }
+
+
 .logform{
   border: 20px solid darkgreen;
   width: 300px;
@@ -177,8 +183,32 @@ h1{
   color: purple;
   align-items: center;
   text-align: center;
-  border: 20px  lime;
-  padding: 30px;
+  border: 20px lime;
+  padding: 15px;
   background-color: black;
+  border-bottom: 10px  purple;
   
 }
+.search-text{
+  border: 1px solid;
+  border-color: green;
+  border-radius: 0px;
+  font-size: 30px;
+  font-family: 'Press Start 2P';
+  padding: 10px 20px;
+  margin-bottom: 0px;
+  width: 820px;
+  margin-bottom: 20px;
+  margin-right: 50px;
+  color: purple;
+}
+.log-out{
+  background-color: black;
+  border: solid purple;
+  padding: 12px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+}
+

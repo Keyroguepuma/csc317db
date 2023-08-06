@@ -6,10 +6,16 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const handlebars = require("express-handlebars");
+
+const session = require('express-session');
+const MySQLStore = require('express-mysql-session')(session);
+
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 
 const app = express();
+
+const sessionStore = new MySQLStore({/** Using default options */}, require('./config/database'));
 
 app.engine(
   "hbs",
@@ -30,10 +36,31 @@ app.set("view engine", "hbs");
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+app.use(cookieParser('csc317secret'));
 
 app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use("/public", express.static(path.join(__dirname, "public")));
+
+app.use(session({
+	key: 'csid',
+	secret: 'csc317secret',
+	store: sessionStore,
+	resave: false,
+	saveUninitialized: true,
+  cookie : {
+    secure: false,
+    httpOnly: true,
+  }
+}))
+
+app.use(function(req,res,next){
+  console.log(req.session);
+  if(req.session.user){
+    res.locals.isLoggedIn = true;
+    res.locals.user = req.session.user;
+  }
+  next();
+})
 
 app.use("/", indexRouter); // route middleware from ./routes/index.js
 app.use("/users", usersRouter); // route middleware from ./routes/users.js
