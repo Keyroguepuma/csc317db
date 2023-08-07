@@ -45,7 +45,10 @@ router.post("/login", async function(req,res,next){
     var [results, _] = await db.execute(`select id, username, email, password from users where  username=? `,[username]);
     const user = results[0];
     if(!user){
-      return res.redirect("/login");
+      req.flash("error", "Login Failed: Invalid Credentials")
+      return req.session.save(function(err){
+        return res.redirect("/login");
+      })
     }
     var passwordsMatch = await bcrypt.compare(password, user.password);
 
@@ -55,11 +58,15 @@ router.post("/login", async function(req,res,next){
         username: user.username,
         email: user.email,
       }
-      return res.redirect('/')
-
+      req.flash("success", "You are now logged in")
+      return req.session.save(function(err){
+        return res.redirect("/");
+      })
     }else{
-      return res.redirect('/login');
-
+      req.flash("error", "Login Failed: Invalid Credentials")
+      return req.session.save(function(err){
+        return res.redirect("/login");
+      })
     }
   }catch(err){
     next(err);

@@ -45,14 +45,14 @@ li a:hover{
 
 .logform{
   border: 20px solid darkgreen;
-  width: 300px;
-  height: 300x;
+  width: 400px;
+  height: 400px;
   font-size: 22px;
   text-align: center;
-  padding: 60px;
+  padding: 40px;
   margin: auto;
-  color: white;
   border-radius: 60px;
+
 
 }
 .title{
@@ -73,11 +73,11 @@ label{
 }
 .logform2{
   border: 20px solid darkgreen;
-  width: 400px;
-  height: 450px;
+  width: 450px;
+  height: 550px;
   font-size: 22px;
   text-align: center;
-  padding: 60px;
+  padding: 15px;
   margin: auto;
 
   border-radius: 60px;
@@ -85,13 +85,13 @@ label{
 }
 .logform3{
   border: 20px solid darkgreen;
-  width: 400px;
-  height: 300px;
+  width: 550px;
+  height: 450px;
   font-size: 22px;
   text-align: center;
-  padding: 60px;
+  padding: 40px;
   margin: auto;
-  margin-top: 100px;
+  margin-top: 80px;
 
   
 
@@ -212,3 +212,15 @@ h1{
   font-size: 20px;
 
 }
+.custom-alert { 
+  padding: 15px;
+   border: 1px solid transparent; 
+   border-radius: 4px; 
+   margin-bottom: 20px; 
+} 
+.custom-alert.success 
+{ background-color: #d4edda; 
+  border-color: #c3e6cb; 
+  color: #155724; 
+} 
+
