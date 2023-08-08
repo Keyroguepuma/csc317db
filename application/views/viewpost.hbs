@@ -14,7 +14,10 @@
         </div>
         <div class="video-info">
           <h4>{{post.username}}</h4> 
-          <h4>{{post.createdAt}}</h4>
+          <h4>{{ formatDateString post.createdAt}}</h4>
+        </div>
+        <div class="video-description">
+          <h3>{{post.description}}</h3>
         </div>
         <form action="" class="comment">
           <label style="font-family: 'Press Start 2P';" for="comment">Comments</label>
