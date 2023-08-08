@@ -2,7 +2,7 @@
     <body>
         <h1 class="title">Upload a Video</h1>
         <div class="logform3">
-            <form action="">
+            <form action="/posts/create" method="post" enctype="multipart/form-data">
                 <label for="title">Title:</label>
                 <input type="text" id="title" name="title"><br><br>
                 <label for="description">Description:</label>
@@ -10,7 +10,7 @@
                 <label for="videofile">Select video:</label>
                 <input type="file" id="videofile" name="videofile"><br><br>
                 <label for="policy">Acceptable Use Policy</label>
-                <input type="checkbox" name="policy" id="policy"><br><br>
+                <input type="checkbox" name="policy" id="policy" required><br><br>
                 <input type="submit" value="Submit Video">
     
             </form>

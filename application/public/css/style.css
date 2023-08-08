@@ -110,16 +110,12 @@ input [type="description"]{
   display: inline;
 }
 .view-post{
-  border: 20px none darkgreen;
   color: purple;
-  width: 500px;
-  height: 500x;
-  font-size: 22px;
-  text-align: left;
-  padding: 10px;
-  margin-right: 100px;
-
+  text-align: center;
+  align-content: center;
+  height: 700px;
 }
+
 .post-items{
   font-size: 22px;
 }
@@ -223,4 +219,26 @@ h1{
   border-color: #c3e6cb; 
   color: #155724; 
 } 
+.comment{
+  font: 50px;
+  font-family:'Press Start 2P' ; 
+  margin-top: 50px;
+  
 
+}
+.comment-text{
+  width: 500px;
+  height: 100px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  resize: none;
+
+}
+.video-title{
+  font-size: 40px;
+  font-family: 'Press Start 2P';
+  margin-top: 400px
+}
