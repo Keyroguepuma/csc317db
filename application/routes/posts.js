@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var multer = require('multer');
-const { makeThumbnail } = require('../middleware/posts');
+const { makeThumbnail, getPostById } = require('../middleware/posts');
 const { isLoggedIn } = require('../middleware/auth');
 const db = require('../config/database');
 
@@ -48,6 +48,9 @@ router.post('/create', isLoggedIn, upload.single('videofile'), makeThumbnail,
         next(err);
     }
 })
+router.get("/:id(\\d+)", getPostById, function(req,res,next){
+    res.render("viewpost", {title: `View Post ${req.params.id}`});
+  })
 
 
 

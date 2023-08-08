@@ -16,8 +16,6 @@ router.get("/postvideo" , isLoggedIn, function(req,res,next){
 router.get("/registration" , function(req,res,next){
   res.render('registration', {title: 'Register'/*, js:["validation.js"]*/})
 })
-router.get("/viewpost" , function(req,res,next){
-  res.render('viewpost', {title: 'View Post'})
-})
+
 
 module.exports = router;

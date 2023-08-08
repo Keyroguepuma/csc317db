@@ -1,16 +1,20 @@
 
   <main>
+    {{log this}}
     <body>
       <div class="view-post">
-         <div class="video">
-          <p>This is where video going to go</p>
+         <div >
+          <video controls class="video" >
+            <source src="/{{post.video}}" type="video/mp4">
+          </video>
         </div>
 
          <div class="video-title">
-          <h3>Title of the video</h3>
+          <h2>{{post.title}}</h2>
         </div>
         <div class="video-info">
-          <h3>Adrian                   August something</h3> 
+          <h4>{{post.username}}</h4> 
+          <h4>{{post.createdAt}}</h4>
         </div>
         <form action="" class="comment">
           <label style="font-family: 'Press Start 2P';" for="comment">Comments</label>

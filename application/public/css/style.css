@@ -240,5 +240,10 @@ h1{
 .video-title{
   font-size: 40px;
   font-family: 'Press Start 2P';
-  margin-top: 400px
+  margin-top: 0px
+}
+.video{
+  width: 700px;
+  height: 400px;
+
 }
