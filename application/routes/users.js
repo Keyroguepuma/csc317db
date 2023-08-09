@@ -2,9 +2,10 @@ var express = require('express');
 var router = express.Router();
 var bcrypt = require('bcrypt');
 const db = require('../config/database');
+const { doesUsernameExist, doesEmailExist } = require('../middleware/validation');
 
 //localhost:300/users/registration
-router.post('/registration', async function(req,res,next){
+router.post('/registration', doesUsernameExist, doesEmailExist, async function(req,res,next){
   var {username,email,password} = req.body;
   //server side validation
   try{
