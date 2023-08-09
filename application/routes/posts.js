@@ -62,9 +62,12 @@ router.get("/search", async function(req,res,next){
             res.locals.searchValue = key
             return res.render('index')
         }else{
-            res.locals.count= results.length;
-            res.locals.results = results;
-            return res.render('index')
+            req.flash("error", "No post found")
+            return req.session.save(function (err){
+                if (err) next (err);
+                return res.redirect('/')
+            })
+        
         }
 
     }catch(err){
