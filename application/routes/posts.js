@@ -48,10 +48,34 @@ router.post('/create', isLoggedIn, upload.single('videofile'), makeThumbnail,
         next(err);
     }
 })
+//localhost:300/posts/search?key=term
+router.get("/search", async function(req,res,next){
+    var {key} = req.query;
+    const searchValue = `%${key}%`;
+    try{
+        var [results, _] = await db.execute(`select id, title, description, thumbnail, concat_ws(" ", title, description) as haystack
+        FROM posts
+        HAVING haystack like ?;`, [searchValue])
+        if(results && results.length > 0){
+            res.locals.count= results.length;
+            res.locals.results = results;
+            res.locals.searchValue = key
+            return res.render('index')
+        }else{
+            res.locals.count= results.length;
+            res.locals.results = results;
+            return res.render('index')
+        }
+
+    }catch(err){
+        next(err);
+    }
+    
+
+})
+
 router.get("/:id(\\d+)", getPostById, function(req,res,next){
     res.render("viewpost", {title: `View Post ${req.params.id}`});
   })
-
-
 
 module.exports = router;
