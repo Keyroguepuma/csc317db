@@ -2,22 +2,14 @@ var express = require('express');
 var router = express.Router();
 var bcrypt = require('bcrypt');
 const db = require('../config/database');
-const { doesUsernameExist, doesEmailExist } = require('../middleware/validation');
+const { doesUsernameExist, doesEmailExist, checkEmail, checkUsername, checkPassword } = require('../middleware/validation');
 
 //localhost:300/users/registration
-router.post('/registration', doesUsernameExist, doesEmailExist, async function(req,res,next){
+router.post('/registration', checkUsername, checkEmail, doesUsernameExist, doesEmailExist, checkPassword ,async function(req,res,next){
   var {username,email,password} = req.body;
   //server side validation
   try{
-    var [results, _] = await db.query(`select id from users where username = ?`, [username])
-    if(results && results.length > 0){
-      return res.redirect('/registration')
-    } 
-    var [results, _] = await db.query(`select id from users where email = ?`, [email])
-     if(results && results.length > 0){
-      return res.redirect('/registration')
-    }
-
+  
     // insert into db
     var hashedPassword = await bcrypt.hash(password, 5);
 
