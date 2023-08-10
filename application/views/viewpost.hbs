@@ -1,6 +1,6 @@
-
+<html>
   <main>
-    {{log this}}
+    
     <body>
       <div class="view-post">
          <div >
@@ -19,12 +19,87 @@
         <div class="video-description">
           <h3>{{post.description}}</h3>
         </div>
-        <form action="" class="comment">
+        <div class="comment">
           <label style="font-family: 'Press Start 2P';" for="comment">Comments</label>
-          <input type="" id="comment" name="comment" class="comment-text">
-        </form>
+          <textarea id="comment-text" name="comment" class="comment-text"></textarea>
+          <button type="submit" class="search-button" id="comment-button" data-postid="{{post.id}}">Enter</button>
+        </div>
+        <div class="comment-list" id="comment-list">
+          {{#each post.comment}}
+          <div id="comments" class="comments"> 
+              <strong class="author-comment">author </strong>
+              <span class="date-comment">date</span>
+              <div class="text-comment"><p>this is some comment</p></div>
+
+          </div>
+
+          {{/each}}
+
+
+        </div>
 
       </div>
        
     </body>
     </main>
+    </html>
+    <script>
+      function buildCommentDiv(data){
+    const dateString = new Date().toLocaleString("en-us", {
+      timeStyle: "medium",
+      dateStyle: "medium"
+
+    });
+    const divComment = document.createElement('div');
+    divComment.id= `message-${data.commentId}`;
+    divComment.classList.add('comments');
+    const usernameTag = document.createElement('strong')
+    usernameTag.classList.add('author-comment');
+   usernameTag.appendChild(document.createTextNode(data.username));
+   const dateSpan = document.createElement('span');
+   dateSpan.classList.add('date-comment');
+   const commentText = document.createAttribute('div');
+   commentText.classList.add('text-comment');
+   commentText.appendChild(document.createTextNode(data.createTextNode));
+   divComment.append(usernameTag, dateSpan, commentText);
+   return divComment;
+  }
+  const commentLists = document.getElementById('comment-list')
+  const commentButton = document.getElementById('comment-button');
+  const commentTextArea = document.getElementById('comment-text');
+
+  if (commentButton) {
+  commentButton.addEventListener('click', function (ev) {
+    ev.preventDefault(); // Prevent the default form submission
+
+    const commentText = commentTextArea.value;
+    const postId = ev.currentTarget.dataset.postid;
+
+    const payLoad = {
+      postId,
+      commentText,
+    };
+
+    const fetchOptions = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payLoad), // Convert the payload to JSON
+    };
+
+    fetch('/comments/create', fetchOptions)
+      .then((resp) => resp.json())
+      .then((data) => {
+        console.log(data);
+        if (data.statusCode < 0) {
+          window.location.replace('/login');
+        }
+      })
+      .catch((error) => console.error(error));
+  });
+}
+     
+    </script>
+
+  
