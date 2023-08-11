@@ -20,7 +20,13 @@ Please follow the instructions below and fill in the information requested when 
 
 ## Build Instructions
 1. npm install
-2. npm run builddb
+2.Create a file named .envin your root directory and add the folloiwng variables 
+DB_NAME=""
+DB_PASSWORD=""
+DB_USER=""
+DB_HOST=""
+PORT=
+3. npm run builddb
 
 ## Run Instructions
 1. npm start

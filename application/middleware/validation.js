@@ -41,19 +41,20 @@ module.exports ={
                 res.redirect('/registration')
         })
         }else{
-            next();
+            if(password != password2){
+                req.flash("error", "Error: Passwords must match");
+                req.session.save(function (err){
+                    if (err) next (err);
+                    res.redirect('/registration')
+            })
+    
+            }else{
+                next();
+    
+            }
+            
         }
-        if(password != password2){
-            req.flash("error", "Error: Passwords must match");
-            req.session.save(function (err){
-                if (err) next (err);
-                res.redirect('/registration')
-        })
-
-        }else{
-            next();
-
-        }
+       
     },
     doesUsernameExist : async function(req,res,next){
         var {username} = req.body;
