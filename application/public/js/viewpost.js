@@ -1,54 +1,5 @@
-<html>
-  <main>
-    
-    <body>
-      <div class="view-post">
-         <div >
-          <video controls class="video" >
-            <source src="/{{post.video}}" type="video/mp4">
-          </video>
-        </div>
-
-         <div class="video-title">
-          <h2>{{post.title}}</h2>
-        </div>
-        <div class="video-info">
-          <h4>{{post.username}}</h4> 
-          <h4>{{ formatDateString post.createdAt}}</h4>
-        </div>
-        <div class="video-description">
-          <h3>{{post.description}}</h3>
-        </div>
-        <div class="comment">
-          <label style="font-family: 'Press Start 2P';" for="comment">Comments</label>
-          <textarea id="comment-text" name="comment" class="comment-text"></textarea>
-          <button type="submit" class="comment-button" id="comment-button" data-postid="{{post.id}}" >Enter</button>
-         
-        </div>
-        <div class="comment-list" id="comment-list">
-
-          {{#each post.Comments}}
-          <div id="comments" class="comments"> 
-              <strong class="author-comment">{{username}} </strong>
-              <span class="date-comment">{{formatDateString createdAt}}</span>
-              <div class="text-comment"><p>{{text}}</p></div>
-
-          </div>
-
-          {{/each}}
-
-
-        </div>
-
-      </div>
-       
-    </body>
-    </main>
-    </html>
-    <script>
-
-
-      function buildCommentDiv(data){
+var stringify = require('json-stringify');
+function buildCommentDiv(data){
     const dateString = new Date().toLocaleString("en-us", {
       timeStyle: "medium",
       dateStyle: "medium"
@@ -97,6 +48,3 @@ if(commentButton){
     })
 }
      
-    </script>
-
-  
