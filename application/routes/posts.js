@@ -77,7 +77,7 @@ router.get("/search", async function (req, res, next) {
 
 })
 
-router.get("/:id(\\d+)", getPostById, getCommenstsForPostId,   function (req, res, next) {
+router.get("/:id(\\d+)", getPostById, getCommenstsForPostId,  function (req, res, next) {
     res.render("viewpost", { title: `View Post ${req.params.id}` });
 })
 

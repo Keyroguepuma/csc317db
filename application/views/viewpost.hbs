@@ -62,6 +62,7 @@
     usernameTag.classList.add('author-comment');
    usernameTag.appendChild(document.createTextNode(data.username));
    const dateSpan = document.createElement('span');
+   dateSpan.appendChild(document.createTextNode(dateString));
    dateSpan.classList.add('date-comment');
    const commentText = document.createElement('div');
    commentText.classList.add('comment-text');
