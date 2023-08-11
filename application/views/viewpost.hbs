@@ -63,9 +63,9 @@
    usernameTag.appendChild(document.createTextNode(data.username));
    const dateSpan = document.createElement('span');
    dateSpan.classList.add('date-comment');
-   const commentText = document.createAttribute('div');
-   commentText.classList.add('text-comment');
-   commentText.appendChild(document.createTextNode(data.createTextNode));
+   const commentText = document.createElement('div');
+   commentText.classList.add('comment-text');
+   commentText.appendChild(document.createTextNode(data.commentText));
    divComment.append(usernameTag, dateSpan, commentText);
    return divComment;
   }
@@ -90,7 +90,16 @@ if(commentButton){
       }
       fetch("/comments/create", fetchOptions)
         .then((resp) => resp.json())
-        .then((data) => console.log((data)))
+        .then((data) => {
+          console.log(data);
+          if(data.statusCode < 0){
+            window.location.replace('/login')
+          }else{
+            const commentDiv = buildCommentDiv(data);
+            commentsList.append(commentDiv);
+            commentTextArea.value = " ";
+          }
+        })
         .catch(error => console.error(error))
         
       console.log(fetchOptions);
