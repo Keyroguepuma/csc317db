@@ -12,7 +12,7 @@ const MySQLStore = require('express-mysql-session')(session);
 const flash = require('express-flash');
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
-const postsRouter = require("./routes/posts");
+ const postsRouter = require("./routes/posts");
 
 
 const app = express();

@@ -2,6 +2,7 @@ var pathToFFMPEG = require("ffmpeg-static");
 var promisify = require('util').promisify;
 var exec = promisify(require("child_process").exec);
 var db = require('../config/database');
+
 module.exports = {
     makeThumbnail: async function (req, res, next) {
         if (!req.file) {
@@ -49,23 +50,19 @@ module.exports = {
         }
 
     },
-    getCommentsForPostById : async function(req,res,next){
-        var {id} = req.params;
     
+    getRecentPosts: async function(req, res, next) {
         try{
-            var[results, _] = await db.execute(`SELECT c.id, c.text, c.createdAt, u.username
-            FROM comments c
-            JOIN users u
-            ON c.fk_userId = u.id
-            WHERE c.fk_postId=?;`,[id])
-        res.locals.post.comments = results;
-        next();
-
+            var [results, _] = await db.execute(`SELECT id, title, description, thumbnail, createdAt
+            FROM posts
+            ORDER BY createdAt DESC
+            LIMIT 10;`);
+            res.locals.results = results;
+            next();
+        
         }catch(err){
             next(err);
+
         }
-    },
-    getRecentPosts: async function(req,res,next){
-        next();
     }
 }

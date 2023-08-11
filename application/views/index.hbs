@@ -1,6 +1,7 @@
 <span id="counter-element" class="photo-counter" > </span>
 <main id="main-content" class="index-main">
-    {{#each results}}
+    {{log this}}
+{{#each results}}
     <div class="home-wholething">
         <a href="/posts/{{id}}">
         <img class="home-thumbnail" src="/{{thumbnail}}" alt="">
@@ -8,7 +9,9 @@
         <div class="home-title">
         <h3>{{title}}</h3>
         </div>
-        
+       
     </div>
     {{/each}}
+
+        
  </main>
