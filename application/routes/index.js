@@ -19,5 +19,8 @@ router.get("/registration" , function(req,res,next){
   res.render('registration', {title: 'Register'/*, js:["validation.js"]*/})
 })
 
+router.get("/account", function(req,res,next){
+  
+} )
 
 module.exports = router;

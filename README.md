@@ -24,7 +24,7 @@ Please follow the instructions below and fill in the information requested when 
 DB_NAME=""
 DB_PASSWORD=""
 DB_USER=""
-DB_HOST=""
+DB_HOST=""n
 PORT=
 3. npm run builddb
 
